@@ -36,7 +36,7 @@ namespace fernet
 #include <byteswap.h>
 #endif
 
-    bool is_big_endian(void)
+    static bool is_big_endian(void)
     {
         union
         {
@@ -46,28 +46,28 @@ namespace fernet
         return bint.c[0] == 1;
     }
 
-    uint64_t system_to_big_endian(uint64_t system)
+    static uint64_t system_to_big_endian(uint64_t system)
     {
         if (is_big_endian())
             return system;
         return bswap_64(system);
     }
 
-    uint64_t big_to_system_endian(uint64_t big)
+    static uint64_t big_to_system_endian(uint64_t big)
     {
         if (is_big_endian())
             return big;
         return bswap_64(big);
     }
 
-    uint32_t system_to_big_endian(uint32_t system)
+    static uint32_t system_to_big_endian(uint32_t system)
     {
         if (is_big_endian())
             return system;
         return bswap_32(system);
     }
 
-    uint32_t big_to_system_endian(uint32_t big)
+    static uint32_t big_to_system_endian(uint32_t big)
     {
         if (is_big_endian())
             return big;
