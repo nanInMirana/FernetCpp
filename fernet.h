@@ -26,7 +26,7 @@ namespace fernet
 	constexpr auto FERNET_ERROR_TIMESTAMP = -4;
 	constexpr auto FERNET_ERROR_WRONG_KEY = -5;
 
-	std::string get_key_from_password(std::string &password)
+	static std::string get_key_from_password(std::string &password)
 	{
 		CryptoPP::SHA256 hash;
 		BYTE digest[CryptoPP::SHA256::DIGESTSIZE];
